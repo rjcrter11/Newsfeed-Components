@@ -50,7 +50,6 @@ function makeMenu(array) {
   const menuButton = document.querySelector(".menu-button");
 
   menuButton.addEventListener("click", (event) => {
-    console.log("clicked", event);
     menu.classList.toggle("menu--open");
   });
 

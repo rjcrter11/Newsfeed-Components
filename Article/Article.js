@@ -164,7 +164,6 @@ function articleMaker(
   paragraph3.textContent = thirdParagraph;
 
   article.addEventListener("click", (event) => {
-    console.log("ive been clicked", event);
     article.classList.toggle("article-open");
   });
 
@@ -183,4 +182,36 @@ data.map((item) => {
       item.thirdParagraph
     )
   );
+});
+
+function buttonMaker(text) {
+  const button = document.createElement("button");
+  button.textContent = text;
+  button.style.fontSize = "1.2rem";
+  button.style.padding = "10px";
+  button.style.borderRadius = "5px";
+  button.style.backgroundColor = "#388E3C";
+  button.style.color = "white";
+  button.style.textAlign = "center";
+
+  const article = document.querySelector(".articles");
+
+  button.addEventListener("mouseover", () => {
+    button.style.backgroundColor = "white";
+    button.style.color = "#388E3C";
+  });
+  button.addEventListener("mouseleave", () => {
+    button.style.backgroundColor = "#388E3C";
+    button.style.color = "white";
+  });
+
+  button.addEventListener("click", () => {
+    article.classList.toggle("article-open");
+  });
+  return button;
+}
+
+const articleList = document.querySelectorAll(".article");
+articleList.forEach((item) => {
+  item.appendChild(buttonMaker("read"));
 });
