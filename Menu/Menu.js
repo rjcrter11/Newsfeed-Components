@@ -37,18 +37,18 @@ let menuItems = [
 function makeMenu(array) {
   const menu = document.createElement("div");
   const listHolder = document.createElement("ul");
-  let list = document.createElement("li");
 
-  menu.append(listHolder);
-  menu.append(list);
   menu.classList.add("menu");
+  menu.append(listHolder);
 
-  for (let i = 0; i < array.length; i++) {
-    list = array[i];
+  array.forEach((item) => {
+    let list = document.createElement("li");
+    list.textContent = item;
     listHolder.append(list);
-  }
+  });
 
   const menuButton = document.querySelector(".menu-button");
+
   menuButton.addEventListener("click", (event) => {
     console.log("clicked", event);
     menu.classList.toggle("menu--open");
@@ -56,7 +56,7 @@ function makeMenu(array) {
 
   return menu;
 }
-const menuButton = document.querySelector(".menu-button");
-menuItems.forEach((item) => {
-  menuButton.append(makeMenu(item));
-});
+
+const header = document.querySelector(".header");
+
+header.append(makeMenu(menuItems));
