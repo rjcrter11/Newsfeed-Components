@@ -163,8 +163,9 @@ function articleMaker(
   paragraph2.textContent = secondParagraph;
   paragraph3.textContent = thirdParagraph;
 
-  expandButton.addEventListener("click", () => {
-    expandButton.classList.toggle("article-open");
+  article.addEventListener("click", (event) => {
+    console.log("ive been clicked", event);
+    article.classList.toggle("article-open");
   });
 
   return article;

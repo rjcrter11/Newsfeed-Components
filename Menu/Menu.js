@@ -1,12 +1,12 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
 
 /* 
@@ -33,3 +33,30 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+function makeMenu(arr) {
+  const menu = document.createElement("div");
+  const listHolder = document.createElement("ul");
+  const list = document.createElement("li");
+
+  menu.append(listHolder);
+  menu.append(list);
+
+  let newList = menuItems.forEach((item) => {
+    list.append(arr.item);
+  });
+
+  listHolder.append(newList);
+
+  const menuButton = document.querySelector(".menu-button");
+  menuButton.addEventListener("click", () => {
+    menuButton.classList.toggle("menu--open");
+  });
+
+  return menu;
+}
+
+const header = document.querySelector(".header");
+menuItems.forEach((data) => {
+  header.append(makeMenu(data.arr));
+});
