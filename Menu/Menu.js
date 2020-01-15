@@ -34,29 +34,29 @@ let menuItems = [
   
 */
 
-function makeMenu(arr) {
+function makeMenu(array) {
   const menu = document.createElement("div");
   const listHolder = document.createElement("ul");
-  const list = document.createElement("li");
+  let list = document.createElement("li");
 
   menu.append(listHolder);
   menu.append(list);
+  menu.classList.add("menu");
 
-  let newList = menuItems.forEach((item) => {
-    list.append(arr.item);
-  });
-
-  listHolder.append(newList);
+  for (let i = 0; i < array.length; i++) {
+    list = array[i];
+    listHolder.append(list);
+  }
 
   const menuButton = document.querySelector(".menu-button");
-  menuButton.addEventListener("click", () => {
-    menuButton.classList.toggle("menu--open");
+  menuButton.addEventListener("click", (event) => {
+    console.log("clicked", event);
+    menu.classList.toggle("menu--open");
   });
 
   return menu;
 }
-
-const header = document.querySelector(".header");
-menuItems.forEach((data) => {
-  header.append(makeMenu(data.arr));
+const menuButton = document.querySelector(".menu-button");
+menuItems.forEach((item) => {
+  menuButton.append(makeMenu(item));
 });
